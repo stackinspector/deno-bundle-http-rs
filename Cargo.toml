@@ -1,0 +1,12 @@
+[package]
+name = "deno-bundle-http"
+version = "0.1.0"
+edition = "2018"
+
+[lib]
+name = "deno_bundle_http"
+
+[dependencies]
+structopt = "0.3"
+ureq = "2.1"
+tiny_http = { version = "0.8", features = ["default"] }
