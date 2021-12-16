@@ -7,8 +7,9 @@ pub fn handler(path: &str) -> Option<Result<String, String>> {
         _ => return None,
     };
     let path = path.as_str();
-    if path == "favicon.ico" {
-        return None
+    match path {
+        "" | "favicon.ico" => return None,
+        _ => ()
     }
     let url = format!("https://{}", path);
     let result = Command::new("deno").arg("bundle").arg(url).env("NO_COLOR", "1").output().unwrap();
