@@ -1,12 +1,23 @@
 [package]
 name = "deno-bundle-http"
 version = "0.1.0"
-edition = "2018"
+edition = "2021"
+authors = ["stackinspector"]
+license = "MIT"
+repository = "https://github.com/Berylsoft/deno-bundle-http"
+description = "Execute `deno bundle` over http request."
+readme = "README.md"
 
 [lib]
 name = "deno_bundle_http"
+path = "lib.rs"
+
+[[bin]]
+name = "deno-bundle-http"
+path = "main.rs"
 
 [dependencies]
 structopt = "0.3"
-ureq = "2.1"
-tiny_http = { version = "0.8", features = ["default"] }
+tokio = { version = "1", features = ["full"] }
+warp = "0.3" # features = ["compression"]
+reqwest = { version = "0.11", default-features = false, features = ["rustls-tls"] }
